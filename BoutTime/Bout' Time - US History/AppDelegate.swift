@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  BoutTime
+//  Bout' Time - US History
 //
-//  Created by Francisco Luna on 2/23/19.
+//  Created by Francisco Luna on 3/10/19.
 //  Copyright © 2019 Francisco Luna. All rights reserved.
 //
 
