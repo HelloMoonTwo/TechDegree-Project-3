@@ -16,40 +16,24 @@ var incorrectlyAnswered: Int = 0
 let questionsPerGame = 6
 let questionsPerRound = 4
 var roundCorrect: Bool?
-var cellBeenShaken = false
+var cellBeenShaken = true
 
 // Reset functions
-func resetScore() {
+func resetRound() {
+    roundCorrect = nil
+    randomEvents = []
+    cellBeenShaken = false
+    listOfEvents = HistoricEvents()
+    getRandomEvents()
+}
+
+func resetGame() {
     correctlyAnswered = 0
     incorrectlyAnswered = 0
 }
 
-func resetTestAnswer() {
-    roundCorrect = nil
-}
-
-func resetRandomEvents() {
-    randomEvents = []
-}
-
-func resetListOfEvents() {
-    listOfEvents = HistoricEvents()
-}
-
-func resetRound() {
-    resetTestAnswer()
-    resetRandomEvents()
-}
-
-func resetGame() {
-    resetRound()
-    resetScore()
-    resetListOfEvents()
-}
-
 // Function to get 4 random events
 func getRandomEvents() {
-    randomEvents = []
     while randomEvents.count < questionsPerRound {
         randomEvents.append(listOfEvents.getRandomEvent())
     }

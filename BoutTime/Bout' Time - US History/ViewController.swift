@@ -56,28 +56,18 @@ class ViewController: UIViewController {
     
     // Start new round
     func newRound() {
-        timer.invalidate()
-        cellBeenShaken = false
-        buttonsEnabeled(true)
         NextRoundButton.isHidden = true
         TimerLabel.isHidden = false
+        buttonsEnabeled(true)
         resetRound()
-        getRandomEvents()
         updateLabels()
         startTimer()
     }
     
     // Start new game
     func newGame() {
-        timer.invalidate()
-        cellBeenShaken = false
-        buttonsEnabeled(true)
         resetGame()
-        getRandomEvents()
-        updateLabels()
-        NextRoundButton.isHidden = true
-        TimerLabel.isHidden = false
-        startTimer()
+        newRound()
     }
     
     func updateNextroundButton() {
@@ -120,6 +110,7 @@ class ViewController: UIViewController {
             updateTimer()
         } else {
             timer.invalidate() // Once the timer hits 0, the timer will stop and the game will test to see if the  round is correct
+            cellBeenShaken = true
             buttonsEnabeled(false)
             TimerLabel.isHidden = true
             updateNextroundButton()
